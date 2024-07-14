@@ -1,3 +1,3 @@
-# BASIC EXPRESS TYPESCRIPT PROJECT SETUP
+# Airplane booking server using Express + Typescript
 
 #### Check Setup.md file
