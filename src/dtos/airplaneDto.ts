@@ -5,4 +5,4 @@ export const airplaneSchema = z.object({
   capacity: z.number(),
 });
 
-export type CreateAirplaneDto = z.infer<typeof airplaneSchema>;
+export type AirplaneDto = z.infer<typeof airplaneSchema>;

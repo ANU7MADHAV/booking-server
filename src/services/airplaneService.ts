@@ -13,7 +13,8 @@ class AirplaneService {
       const response = await this.airplaneRepository.createAirplane(data);
       return response;
     } catch (error) {
-      throw new Error("Failed to create airplane");
+      console.log(error);
+      throw error;
     }
   }
 
@@ -22,7 +23,8 @@ class AirplaneService {
       const response = await this.airplaneRepository.getAirplanes();
       return response;
     } catch (error) {
-      throw new Error("Failed to create airplane");
+      console.log(error);
+      throw error;
     }
   }
 
@@ -31,7 +33,8 @@ class AirplaneService {
       const response = await this.airplaneRepository.updateAirplane(id, data);
       return response;
     } catch (error) {
-      throw new Error("Failed to create airplane");
+      console.log(error);
+      throw error;
     }
   }
   async removeAirplane(id: number) {
@@ -39,7 +42,8 @@ class AirplaneService {
       const response = await this.airplaneRepository.removeAirplane(id);
       return response;
     } catch (error) {
-      throw new Error("Failed to create airplane");
+      console.log(error);
+      throw error;
     }
   }
 }

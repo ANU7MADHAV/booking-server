@@ -25,6 +25,7 @@ class AirplaneRepository {
       return response;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 
@@ -42,6 +43,7 @@ class AirplaneRepository {
       return response;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 
@@ -55,6 +57,7 @@ class AirplaneRepository {
       return response;
     } catch (error) {
       console.log(error);
+      throw error;
     }
   }
 }
