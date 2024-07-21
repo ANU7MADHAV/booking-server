@@ -1,3 +1,4 @@
+import { error } from "winston";
 import AirplaneRepository from "../repositories/ariplaneRepository";
 import { Airplane } from "../types/airplane";
 
@@ -21,6 +22,16 @@ class AirplaneService {
   async getAirplanes() {
     try {
       const response = await this.airplaneRepository.getAirplanes();
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  async getAirplane(id: number) {
+    try {
+      const response = await this.airplaneRepository.getAirplane(id);
       return response;
     } catch (error) {
       console.log(error);

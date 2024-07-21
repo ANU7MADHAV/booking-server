@@ -20,7 +20,8 @@ class AirplaneService {
                 return response;
             }
             catch (error) {
-                throw new Error("Failed to create airplane");
+                console.log(error);
+                throw error;
             }
         });
     }
@@ -31,7 +32,20 @@ class AirplaneService {
                 return response;
             }
             catch (error) {
-                throw new Error("Failed to create airplane");
+                console.log(error);
+                throw error;
+            }
+        });
+    }
+    getAirplane(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield this.airplaneRepository.getAirplane(id);
+                return response;
+            }
+            catch (error) {
+                console.log(error);
+                throw error;
             }
         });
     }
@@ -42,7 +56,8 @@ class AirplaneService {
                 return response;
             }
             catch (error) {
-                throw new Error("Failed to create airplane");
+                console.log(error);
+                throw error;
             }
         });
     }
@@ -53,7 +68,8 @@ class AirplaneService {
                 return response;
             }
             catch (error) {
-                throw new Error("Failed to create airplane");
+                console.log(error);
+                throw error;
             }
         });
     }

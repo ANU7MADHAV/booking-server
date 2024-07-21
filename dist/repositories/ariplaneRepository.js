@@ -8,8 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
+const notFound_1 = __importDefault(require("../errors/notFound"));
 const prisma = new client_1.PrismaClient();
 class AirplaneRepository {
     createAirplane(data) {
@@ -32,11 +36,30 @@ class AirplaneRepository {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const response = yield prisma.ariplane.findMany();
+                if (!response) {
+                    throw new notFound_1.default("Airplanes");
+                }
                 return response;
             }
             catch (error) {
                 console.log(error);
+                throw error;
             }
+        });
+    }
+    getAirplane(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield prisma.ariplane.findUnique({
+                    where: {
+                        id,
+                    },
+                });
+                if (!response) {
+                    throw new notFound_1.default("Airplane");
+                }
+            }
+            catch (error) { }
         });
     }
     updateAirplane(id, data) {
@@ -55,6 +78,7 @@ class AirplaneRepository {
             }
             catch (error) {
                 console.log(error);
+                throw error;
             }
         });
     }
@@ -70,6 +94,7 @@ class AirplaneRepository {
             }
             catch (error) {
                 console.log(error);
+                throw error;
             }
         });
     }

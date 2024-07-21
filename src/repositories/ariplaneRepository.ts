@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
 import { Airplane } from "../types/airplane";
+import Notfound from "../errors/notFound";
 
 const prisma = new PrismaClient();
 
@@ -22,11 +23,27 @@ class AirplaneRepository {
   async getAirplanes() {
     try {
       const response = await prisma.ariplane.findMany();
+      if (!response) {
+        throw new Notfound("Airplanes");
+      }
       return response;
     } catch (error) {
       console.log(error);
       throw error;
     }
+  }
+
+  async getAirplane(id: number) {
+    try {
+      const response = await prisma.ariplane.findUnique({
+        where: {
+          id,
+        },
+      });
+      if (!response) {
+        throw new Notfound("Airplane");
+      }
+    } catch (error) {}
   }
 
   async updateAirplane(id: number, data: Airplane) {

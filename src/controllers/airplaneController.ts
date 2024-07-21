@@ -1,4 +1,4 @@
-import { NextFunction,Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import { AirplaneDto, airplaneSchema } from "../dtos/airplaneDto";
@@ -45,6 +45,17 @@ async function getAirplanes(_: Request, res: Response, next: NextFunction) {
       message: "Successfully fetch all airplanes",
       data: airplanes,
     });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function getAirplane(req: Request, res: Response, next: NextFunction) {
+  try {
+    const id = req.params.id;
+    const numberId = Number(id);
+    const response = await airplaneService.getAirplane(numberId);
+    return response;
   } catch (error) {
     next(error);
   }
@@ -101,4 +112,5 @@ export default {
   getAirplanes,
   updateAirplane,
   removeAirplane,
+  getAirplane,
 };

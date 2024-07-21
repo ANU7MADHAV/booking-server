@@ -1,14 +1,9 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import BaseError from "../errors/baseError";
 
-const errorHandler = (
-  err: Error,
-  _: Request,
-  res: Response,
-  __: NextFunction
-) => {
+const errorHandler = (err: Error, _req: Request, res: Response) => {
   if (err instanceof BaseError) {
     return res.status(err.statusCode).json({
       success: false,
