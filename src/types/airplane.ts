@@ -3,3 +3,4 @@ export interface Airplane {
   modelNumber: string;
   capacity: number;
 }
+

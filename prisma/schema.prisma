@@ -18,3 +18,8 @@ model Ariplane {
   modelNumber String
   capacity    Int
 }
+
+model City {
+  id   Int    @id @unique @default(autoincrement())
+  name String @unique
+}
