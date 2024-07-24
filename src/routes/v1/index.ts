@@ -1,11 +1,11 @@
 import express, { Request, Response } from "express";
 
-// import ping from "../../controllers/pingController";
 import airplaneRoutes from "./airplaneRoutes";
+import cityRoutes from "./cityRoutes";
+import airportRoutes from "./airportRoutes";
+import cityRoutes from "./cityRoutes";
 
 const v1Routes = express.Router();
-
-// v1Routes.get("/", ping);
 
 console.log("in v1 routes");
 
@@ -14,5 +14,7 @@ v1Routes.get("/", (_: Request, res: Response) => {
 });
 
 v1Routes.use("/airplanes", airplaneRoutes);
+v1Routes.use("/cities", cityRoutes);
+v1Routes.use("/airports", airportRoutes);
 
 export default v1Routes;

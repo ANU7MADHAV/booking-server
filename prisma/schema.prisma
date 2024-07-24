@@ -20,6 +20,31 @@ model Ariplane {
 }
 
 model City {
-  id   Int    @id @unique @default(autoincrement())
-  name String @unique
+  id       Int       @id @unique @default(autoincrement())
+  name     String    @unique
+  airports Airport[] @relation("CityAirports")
+}
+
+model Airport {
+  id        Int      @id @unique @default(autoincrement())
+  name      String   @unique
+  code      String   @unique
+  cityId    Int
+  city      City     @relation("CityAirports", fields: [cityId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  departures Flight[] @relation("DepatureAirport")
+  arrivals  Flight[] @relation("ArrivalAirport")
+}
+
+model Flight {
+  flightNumber     Int      @unique @default(autoincrement())
+  airplaneId       Int      @id @unique
+  departureCode    String
+  departureAirport Airport  @relation("DepatureAirport", fields: [departureCode], references: [code], onDelete: Cascade, onUpdate: Cascade)
+  arrivalCode      String
+  arrivalAirport   Airport  @relation("ArrivalAirport", fields: [arrivalCode], references: [code], onDelete: Cascade, onUpdate: Cascade)
+  departureTime    DateTime
+  arrivalTime      DateTime
+  price            Int
+  boardingGate     String
+  totalSeats       Int
 }

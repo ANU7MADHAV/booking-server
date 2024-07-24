@@ -6,6 +6,8 @@ const airplaneRoutes = express.Router();
 
 airplaneRoutes.get("/", airplaneController.getAirplanes);
 
+airplaneRoutes.get("/:id", airplaneController.getAirplane);
+
 airplaneRoutes.post("/create", airplaneController.createAirplane);
 
 airplaneRoutes.put("/:id", airplaneController.updateAirplane);

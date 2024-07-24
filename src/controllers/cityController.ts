@@ -3,7 +3,6 @@ import { StatusCodes } from "http-status-codes";
 import { CityDto, citySchema } from "../dtos/cityDto";
 import CityRepository from "../repositories/cityRepository";
 import CityService from "../services/cityServcie";
-import { error } from "winston";
 
 const cityService = new CityService(new CityRepository());
 
