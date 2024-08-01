@@ -1,4 +1,3 @@
-import { error } from "winston";
 import AirplaneRepository from "../repositories/ariplaneRepository";
 import { Airplane } from "../types/airplane";
 

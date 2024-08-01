@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 
 import airplaneRoutes from "./airplaneRoutes";
-import cityRoutes from "./cityRoutes";
 import airportRoutes from "./airportRoutes";
 import cityRoutes from "./cityRoutes";
 

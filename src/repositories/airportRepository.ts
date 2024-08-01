@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
-import { Airport } from "../types/airport";
 import Notfound from "../errors/notFound";
+import { Airport } from "../types/airport";
 
 const prisma = new PrismaClient();
 

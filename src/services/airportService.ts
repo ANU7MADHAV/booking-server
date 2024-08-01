@@ -1,6 +1,5 @@
 import AirportRepository from "../repositories/airportRepository";
 import { Airport } from "../types/airport";
-import AirplaneService from "./airplaneService";
 
 class AirportService {
   private airportRepository: AirportRepository;

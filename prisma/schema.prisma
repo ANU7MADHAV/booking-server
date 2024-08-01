@@ -26,17 +26,18 @@ model City {
 }
 
 model Airport {
-  id        Int      @id @unique @default(autoincrement())
-  name      String   @unique
-  code      String   @unique
-  cityId    Int
-  city      City     @relation("CityAirports", fields: [cityId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  id         Int      @id @unique @default(autoincrement())
+  name       String   @unique
+  code       String   @unique
+  cityId     Int
+  city       City     @relation("CityAirports", fields: [cityId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   departures Flight[] @relation("DepatureAirport")
-  arrivals  Flight[] @relation("ArrivalAirport")
+  arrivals   Flight[] @relation("ArrivalAirport")
 }
 
 model Flight {
-  flightNumber     Int      @unique @default(autoincrement())
+  id               Int      @unique @default(autoincrement())
+  flightNumber     String
   airplaneId       Int      @id @unique
   departureCode    String
   departureAirport Airport  @relation("DepatureAirport", fields: [departureCode], references: [code], onDelete: Cascade, onUpdate: Cascade)

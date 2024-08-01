@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+
 import { CityDto, citySchema } from "../dtos/cityDto";
 import CityRepository from "../repositories/cityRepository";
 import CityService from "../services/cityServcie";
@@ -53,7 +54,7 @@ async function updateCity(req: Request, res: Response, next: NextFunction) {
       success: true,
       error: {},
       message: "Successfully created and added airplane",
-      data: cityData,
+      data: updatedCity,
     });
   } catch (error) {
     next(error);

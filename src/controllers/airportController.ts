@@ -2,11 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 import { AirportDto, airportSchema } from "../dtos/airportDto";
-
-import { AirplaneDto, airplaneSchema } from "../dtos/airplaneDto";
 import AirportRepository from "../repositories/airportRepository";
 import AirportService from "../services/airportService";
-import airplaneService from "../services/airplaneService";
 
 const airportService = new AirportService(new AirportRepository());
 
