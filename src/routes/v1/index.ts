@@ -3,6 +3,7 @@ import express, { Request, Response } from "express";
 import airplaneRoutes from "./airplaneRoutes";
 import airportRoutes from "./airportRoutes";
 import cityRoutes from "./cityRoutes";
+import flightRoutes from "./flightRoutes";
 
 const v1Routes = express.Router();
 
@@ -15,5 +16,6 @@ v1Routes.get("/", (_: Request, res: Response) => {
 v1Routes.use("/airplanes", airplaneRoutes);
 v1Routes.use("/cities", cityRoutes);
 v1Routes.use("/airports", airportRoutes);
+v1Routes.use("/flights", flightRoutes);
 
 export default v1Routes;

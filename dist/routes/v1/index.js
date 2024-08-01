@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const airplaneRoutes_1 = __importDefault(require("./airplaneRoutes"));
 const airportRoutes_1 = __importDefault(require("./airportRoutes"));
 const cityRoutes_1 = __importDefault(require("./cityRoutes"));
+const flightRoutes_1 = __importDefault(require("./flightRoutes"));
 const v1Routes = express_1.default.Router();
 console.log("in v1 routes");
 v1Routes.get("/", (_, res) => {
@@ -15,4 +16,5 @@ v1Routes.get("/", (_, res) => {
 v1Routes.use("/airplanes", airplaneRoutes_1.default);
 v1Routes.use("/cities", cityRoutes_1.default);
 v1Routes.use("/airports", airportRoutes_1.default);
+v1Routes.use("/flights", flightRoutes_1.default);
 exports.default = v1Routes;

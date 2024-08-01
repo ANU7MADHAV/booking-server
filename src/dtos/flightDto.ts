@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const flightSchema = z
   .object({
-    flightNumber: z.number(),
+    flightNumber: z.string(),
     airplaneId: z.number(),
     departureCode: z.string(),
     arrivalCode: z.string(),
@@ -10,5 +10,8 @@ export const flightSchema = z
     arrivalTime: z.date(),
     price: z.number(),
     totalSeats: z.number(),
+    boardingGate: z.string(),
   })
   .required();
+
+export type FlightDto = z.infer<typeof flightSchema>;
